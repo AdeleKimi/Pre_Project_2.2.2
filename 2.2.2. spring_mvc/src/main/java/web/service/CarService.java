@@ -9,13 +9,11 @@ public class CarService {
 
     public static List<Car> getSomeCar(int count) {
         List<Car> lst = Car.getList();
-        List<Car> newLst = new ArrayList<>();
-        if (count >= 5) {
-            return lst;
+        if (count > 5) {
+            count = 5;
         }
-        for (int i = 0; i < count; i++) {
-            newLst.add(lst.get(i));
-        }
+        List<Car> newLst = lst.subList(0,count);
+
         return newLst;
     }
 }
